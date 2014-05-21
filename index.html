@@ -1,13 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<!--
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
-	-->
 
 	<title>FlappyJS</title>
 
@@ -47,6 +45,8 @@ fgpos = 0,
 frames = 0,
 score = 0,
 best = 0,
+
+err = "new",
 
 // State vars //
 
@@ -282,8 +282,8 @@ function onpress(evt) {
 /**
  * Starts and initiate the game
  */
-function main() {
-	document.getElementById("silly").value = "new value";
+function main() {	
+	document.getElementById("silly").innerHTML = err;
 	// create canvas and set width/height
 	canvas = document.createElement("canvas");
 
@@ -304,7 +304,7 @@ function main() {
 	canvas.width = width;
 	canvas.height = height;
 	if (!(!!canvas.getContext && canvas.getContext("2d"))) {
-		document.getElementById("silly").value = "new value";
+		err = "err";
 		alert("Your browser doesn't support HTML5, please update to latest version");
 	}
 	ctx = canvas.getContext("2d");
